@@ -72,6 +72,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>React Task Tracker</h1>
+        <h2>Tasks (<span className="task-count">{this.state.list.length}</span> total)</h2>
         <TodoForm addTask={this.addTask}/>
         <TodoList taskData={this.state.list} toggleItem={this.toggleItem}/>
         <button className="clear" onClick={this.clearCompleted}>Clear completed</button>
