@@ -1,0 +1,100 @@
+h1 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+}
+
+h2 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #161620;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    /* background-color: #1B1B26; */
+    background-color: #1E1E26;
+    padding: 10px 20px;
+    margin: 5px auto;
+    border-radius: 10px;
+}
+
+.completed { 
+    text-decoration: line-through;
+    background-color: #46464B;
+
+    position: relative;
+}
+
+.completed::after {
+    border-bottom: 0.125em solid #42D97C;
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.task-count {
+    color: #42D97C;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* BUTTONS */
+button {
+    font-size: 1rem;
+}
+
+.add-task, .clear {
+	cursor: pointer;
+    background-color: #42d97c;
+    color: #fff;
+    font-weight: 500;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    border-radius: 600px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    outline: 0;
+    border: solid #42d97c;
+}
+
+.add-task:active {
+    position:relative;
+	top:1px;
+}
+
+.clear:active {
+	position:relative;
+	top:1px;
+}
