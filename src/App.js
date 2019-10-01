@@ -6,7 +6,7 @@ import TodoForm from "./components/TodoComponents/TodoForm"
 
 
 // dummy data
-const dummyData = [
+const taskData = [
   {
     id: 1,
     task: "yeet myself off building",
@@ -30,26 +30,51 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = ({
-      dummyData // this is the same as dummyData: dummyData, just shortened 
+      list: taskData 
     })
   }
 
 
-  // methods
+  /********** METHODS **********/
+  toggleItem = id => {
+    this.setState({
+      list: this.state.list.map( item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed
+          }
+        } else {
+          return item
+        }
+      })
+    })
+  }
 
+  addTask = taskName => {
+    const newTask = {
+      task: taskName,
+      id: Date.now(),
+      purchased: false,
+    }
+    this.setState({
+      list: [...this.state.list, newTask]
+    })
+  }
 
-  
   clearCompleted = () => {
     this.setState({
-      dummyData: this.state.dummyData.filter(item => !item.purchased)
+      list: this.state.list.filter(item => !item.completed)
     })
   }
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+      <div className="App">
+        <h1>React Task Tracker</h1>
+        <TodoForm addTask={this.addTask}/>
+        <TodoList taskData={this.state.list} toggleItem={this.toggleItem}/>
+        <button className="clear" onClick={this.clearCompleted}>Clear completed</button>
       </div>
     );
   }

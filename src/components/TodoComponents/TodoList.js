@@ -11,7 +11,7 @@ import Todo from "./Todo"
 const TodoList = props => {
     return (
         <div className="todo-list">
-            {props.dummyData.map( item => (
+            {props.taskData.map( item => (
                 <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
             ))}
         </div>
